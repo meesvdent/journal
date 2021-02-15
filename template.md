@@ -1,10 +1,9 @@
 # ${form_date}
 
 ## To Do
-- [ ] a todo 
-* 
-* 
-
+- [ ] 
+- [ ] 
+- [ ]  
 
 
 ## Thoughts
