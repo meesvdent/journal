@@ -1,0 +1,24 @@
+#!/bin/bash
+
+file_date=$(date +'%d_%m_%Y') 
+filename='journal_entries/'$file_date'.md'
+
+form_date=$(date +'%A %B %d')
+
+entry_folder='journal_entries'
+if ! [ -d "$entry_folder" ]; then
+  mkdir "$entry_folder"
+fi
+
+if test -f "$filename"; then
+  echo "$filename exists."
+  vim -o "$filename"
+else
+  echo "$filename doesn't exist."
+  echo "Creating $filename ..."
+  touch "$filename"
+  echo "parsing template ..."
+  sed -e "s/\${form_date}/$form_date/" template.md > $filename
+  echo "opening $filename ..."
+  vim -o "$filename"
+fi
