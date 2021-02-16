@@ -1,11 +1,11 @@
 #!/bin/bash
 
 file_date=$(date +'%d_%m_%Y') 
-filename='journal_entries/'$file_date'.md'
+filename='/users/meesvdent/Journal/journal_entries/'$file_date'.md'
 
 form_date=$(date +'%A %B %d')
 
-entry_folder='journal_entries'
+entry_folder='Users/meesvdent/Journal/journal_entries'
 if ! [ -d "$entry_folder" ]; then
   mkdir "$entry_folder"
 fi
