@@ -18,7 +18,7 @@ else
   echo "Creating $filename ..."
   touch "$filename"
   echo "parsing template ..."
-  sed -e "s/\${form_date}/$form_date/" template.md > $filename
+  sed -e "s/\${form_date}/$form_date/" /users/meesvdent/Journal/template.md > $filename
   echo "opening $filename ..."
   vim -o "$filename"
 fi
