@@ -24,5 +24,15 @@ def find_themes(day_text):
     return themes
 
 
+def gather_theme(theme):
+    """
+    Puts all the to do's and notes on the same theme from different files into
+    one text file
+
+    """
+    pass
+
+
+
 
 
