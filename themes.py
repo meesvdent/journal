@@ -18,7 +18,6 @@ def find_themes(day_text):
     day_text = day_text.replace("\n", " ")
     words = day_text.split(" ")
     for i in range(0, len(words)):
-        print("that"+words[i]+"this")
         if words[i] == "##":
             themes.append(words[i+1])
 

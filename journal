@@ -1,11 +1,11 @@
 #!/bin/bash
 
 file_date=$(date +'%d_%m_%Y') 
-filename='/users/meesvdent/Journal/journal_entries/'$file_date'.md'
+filename=$HOME'/Journal/journal_entries/'$file_date'.md'
+entry_folder=$HOME'/Journal/journal_entries'
 
 form_date=$(date +'%A %B %d')
 
-entry_folder='Users/meesvdent/Journal/journal_entries'
 if ! [ -d "$entry_folder" ]; then
   mkdir "$entry_folder"
 fi
@@ -18,7 +18,7 @@ else
   echo "Creating $filename ..."
   touch "$filename"
   echo "parsing template ..."
-  sed -e "s/\${form_date}/$form_date/" /users/meesvdent/Journal/template.md > $filename
+  sed -e "s/\${form_date}/$form_date/" $HOME/Journal/template.md > $filename
   echo "opening $filename ..."
   vim -o "$filename"
 fi
