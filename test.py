@@ -4,7 +4,7 @@ from themes import find_themes
 
 
 def test_open_file():
-    filename = "~/Journal/journal_entries/22_02_2021.md"
+    filename = "./journal_entries/22_02_2021.md"
     content = open_file(filename)
     return(content)
 
