@@ -1,8 +1,9 @@
 #!/bin/bash
 
 file_date=$(date +'%d_%m_%Y') 
-filename=$HOME'/Journal/journal_entries/'$file_date'.md'
 entry_folder=$HOME'/Journal/journal_entries'
+filename=$entry_folder'/'$file_date'.md'
+
 
 form_date=$(date +'%A %B %d')
 
@@ -18,7 +19,7 @@ else
   echo "Creating $filename ..."
   touch "$filename"
   echo "parsing template ..."
-  sed -e "s/\${form_date}/$form_date/" $HOME/Journal/template.md > $filename
+  sed -e "s/\${form_date}/$form_date/" $HOME/Journal/journal/template.md > $filename
   echo "opening $filename ..."
   vim -o "$filename"
 fi

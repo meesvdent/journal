@@ -8,6 +8,7 @@ Puts the test from different subjects into different text files
 
 
 import os
+import re
 
 
 def find_themes(day_text):
@@ -36,7 +37,7 @@ def split_themes(day_text):
     theme_contents = day_text.replace('\n## ', ' ## ').split(" ## ")
     theme_dict = {}
     for themetext in theme_contents:
-        themesplit = themetext.split(' ', 1)
+        themesplit = re.split('\n| ', themetext, 1)
         theme_dict[themesplit[0]] = themesplit[1]
 
     return theme_dict
@@ -44,29 +45,20 @@ def split_themes(day_text):
 
 
 
-def collect_theme_content(day_text):
+def collect_theme_content(themes_dict, date, theme_folder):
     """
     Puts all the to do's and notes on the same theme from different files into
     one text file
 
     """
 
-    themefolder = "./themes"
+    print(themes_dict)
 
-    if not os.path.exists(themefolder):
-        os.makedirs(themefolder)
-
-    split_text = split_themes(day_text)
-
-    for theme, text in split_text.items():
-        print(theme, '\n', text)
-
-
-
-
-
-
-
-
-
-
+    for theme, content in themes_dict.items():
+        filename = theme_folder + "/" + theme + ".md"
+        if not os.path.exists(filename):
+            open(filename, 'a').close()
+        with open(filename, 'a') as cfile:
+            cfile.write("#"+date+"\n")
+            cfile.write(content)
+            cfile.write("\n")
