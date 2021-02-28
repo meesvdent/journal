@@ -52,13 +52,12 @@ def collect_theme_content(themes_dict, date, theme_folder):
 
     """
 
-    print(themes_dict)
 
     for theme, content in themes_dict.items():
         filename = theme_folder + "/" + theme + ".md"
         if not os.path.exists(filename):
             open(filename, 'a').close()
         with open(filename, 'a') as cfile:
-            cfile.write("#"+date+"\n")
+            cfile.write("# "+date+"\n")
             cfile.write(content)
             cfile.write("\n")
