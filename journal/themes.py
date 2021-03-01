@@ -9,6 +9,7 @@ Puts the test from different subjects into different text files
 
 import os
 import re
+from helpers import open_file, dump_into_file
 
 
 def find_themes(day_text):
@@ -61,3 +62,27 @@ def collect_theme_content(themes_dict, date, theme_folder):
             cfile.write("# "+date+"\n")
             cfile.write(content)
             cfile.write("\n")
+
+
+
+if __name__ == "__main__":
+    entry_folder = "/Users/meesvdent/Journal/journal_entries"
+    theme_folder = "/Users/meesvdent/Journal/themes"
+    for theme_file in os.listdir(theme_folder):
+        theme_path = theme_folder + "/" + theme_file
+        os.remove(theme_path)
+    for filename in os.listdir("/Users/meesvdent/Journal/journal_entries"):
+        if filename.endswith(".md"):
+            file_path = entry_folder + '/'  + filename
+            day_text = open_file(file_path)
+            themes = find_themes(day_text)
+            themes_dict = split_themes(day_text)
+            date = filename.split(".", 1)[0]
+            collect_theme_content(themes_dict, date, theme_folder)
+
+
+
+
+
+
+
