@@ -2,10 +2,21 @@
 
 file_date=$(date +'%d_%m_%Y') 
 entry_folder=$HOME'/Journal/journal_entries'
-filename=$entry_folder'/'$file_date'.md'
-
+filename=$entry_folder'/'$file_date
+template_loc=$HOME'/Journal/journal/'
 
 form_date=$(date +'%A %B %d')
+
+if [ $1 == "med" ]; then
+  template="med_template.md"
+  filename=$filename'_med'
+else
+  template="template.md"
+  filename=$filename'_todo'
+fi
+
+template=$template_loc$template
+filename=$filename'.md'
 
 if ! [ -d "$entry_folder" ]; then
   mkdir "$entry_folder"
@@ -19,7 +30,7 @@ else
   echo "Creating $filename ..."
   touch "$filename"
   echo "parsing template ..."
-  sed -e "s/\${form_date}/$form_date/" $HOME/Journal/journal/template.md > $filename
+  sed -e "s/\${form_date}/$form_date/" $template > $filename
   echo "opening $filename ..."
   vim -o "$filename"
 fi
