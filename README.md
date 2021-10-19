@@ -11,3 +11,4 @@ command from anywhere.
 ## To do
 * Add github connection and automatic push to private repository
 * Make a weekly file as well as a daily file (week 1 of 2021... etc)
+* Put tests in seperate folder

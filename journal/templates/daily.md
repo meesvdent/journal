@@ -14,7 +14,7 @@
 ## theme
 
 ### To Do
-- [ ]  to do specific for gene -> tom
+- [ ]  
 
 ### thoughts
 *

@@ -3,16 +3,16 @@
 file_date=$(date +'%d_%m_%Y') 
 entry_folder=$HOME'/Journal/journal_entries'
 filename=$entry_folder'/'$file_date
-template_loc=$HOME'/Journal/journal/'
+template_loc=$HOME'/Journal/journal/templates/'
 
 form_date=$(date +'%A %B %d')
 
 if [ $1 == "med" ]; then
-  template="med_template.md"
+  template="med.md"
   filename=$filename'_med'
 else
-  template="template.md"
-  filename=$filename'_todo'
+  template="daily.md"
+  filename=$filename'_daily'
 fi
 
 template=$template_loc$template
